@@ -1,0 +1,17 @@
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.box {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  /* background-color: green; */
+  margin-top: 200px;
+}
+
