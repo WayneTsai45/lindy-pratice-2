@@ -41,8 +41,6 @@ function App() {
   }, []);
 
   const handleClick = (event) => {
-    event.preventDefault();
-
     const clickedColor = event.target.value;
 
     if (clickedColor === color[number]) {
