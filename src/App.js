@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 function App() {
   const [color, setColor] = useState([]);
 
@@ -23,7 +23,9 @@ function App() {
     'F',
   ];
 
-  const getRandomColor = () => {
+  const getRandomColor = useRef(() => {});
+
+  getRandomColor.current = () => {
     const color = new Array(6)
       .fill('')
       .map(() => digits[Math.floor(Math.random() * digits.length)])
@@ -35,7 +37,7 @@ function App() {
   useEffect(() => {
     const newColors = [];
     for (let i = 0; i < 3; i++) {
-      newColors.push(getRandomColor());
+      newColors.push(getRandomColor.current());
     }
     setColor(newColors);
   }, []);
@@ -47,7 +49,7 @@ function App() {
       console.log('Correct!');
       const newColors = [];
       for (let i = 0; i < 3; i++) {
-        newColors.push(getRandomColor());
+        newColors.push(getRandomColor.current());
       }
       setColor(newColors);
     } else {
